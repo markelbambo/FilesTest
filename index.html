@@ -133,15 +133,18 @@
 		//directoryReader.readEntries(success,failDir);
 	}
     function success(entries) {
-    	//var i;
-    	//for (i=0; i<entries.length; i++) {
-        	alert("pasok sa success?"+entries.name);
-    //	}
+    	var i;
+		var ent="";
+    	for (i=0; i<entries.length; i++) {
+			ent += entries[i].name;
+    	}
+		alert("pasok sa success?"+ent);
     }
     function failDir(error) {
     	alert("Failed to list directory contents: " + error.code);
     }
     
+	 
 	
     </script>
   </body>
