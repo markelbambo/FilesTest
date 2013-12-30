@@ -10,7 +10,7 @@
     // Wait for Cordova to load
     document.getElementById("writeXML").addEventListener("click", onDeviceReady, false);
 	document.getElementById("readXML").addEventListener("click", onDeviceReadyRead, false);
-    //document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
@@ -101,8 +101,8 @@
   </head>
   <body>
     <input type="button" value="Write" id="writeXML" />
-    <input type="button" value="Read" id="readXML" />
-	<textarea id="showContentText" style="border:1px solid black;height:200px;width:500px;"></textarea>
+    <input type="button" value="Read" id="readXML" /><br/>
+	<textarea id="showContentText" style="border:1px solid black;height:200px;width:500px;"></textarea><br/>
 	<textarea id="showContentUrl" style="border:1px solid black;height:200px;width:500px;"></textarea>
   </body>
 </html>
