@@ -107,19 +107,20 @@
         alert(evt.target.error.code);
     }
     
-    function showDirectory(){		
+    function showDirectory(){
+		alert("pasok sa showDirectory?");
 		// Get a directory reader
 		var directoryReader = dirEntry.createReader();
 		// Get a list of all the entries in the directory
-		directoryReader.readEntries(success,fail);
+		directoryReader.readEntries(success,failDir);
 	}
     function success(entries) {
     	//var i;
     	//for (i=0; i<entries.length; i++) {
-        	alert(entries.name);
+        	alert("pasok sa success?"+entries.name);
     //	}
     }
-    function fail(error) {
+    function failDir(error) {
     	alert("Failed to list directory contents: " + error.code);
     }
     
