@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.nfast.mobile"
+        id        = "com.nfast.test"
         version   = "1.0.0">
 
     <name>NFast</name>
 
     <description>
-        Mobile app version of the Taas NFast Solutions
+        For File API Testing
     </description>
 
     <author href="http://narrasystems.com" email="maelbambo@narrasystems.com">
