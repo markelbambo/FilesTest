@@ -63,28 +63,28 @@
 
     function gotFileRead(file){
     	alert("Pasok sa gotFileRead?"+file);
-        readDataUrlRead(file);
-        readAsTextRead(file);
+        readDataUrl(file);
+        readAsText(file);
     }
 
-    function readDataUrlRead(file) {
-    	alert("Pasok sa readDataUrlRead?"+file);
+   function readDataUrl(file) {
+   	alert("Pasok sa readDataUrl?"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
-            alert("Read as data URL");
-            alert(evt.target.result);
+            console.log("Read as data URL");
+            console.log(evt.target.result);
         };
-        reader.readDataUrlRead(file);
+        reader.readAsDataURL(file);
     }
 
-    function readAsTextRead(file) {
-    	alert("Pasok sa readAsTextRead?"+file);
+    function readAsText(file) {
+    	alert("Pasok sa readAsText?"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
-            alert("Read as text");
-            alert(evt.target.result);
+            console.log("Read as text");
+            console.log(evt.target.result);
         };
-        reader.readAsTextRead(file);
+        reader.readAsText(file);
     }
 
     function failRead(evt) {
