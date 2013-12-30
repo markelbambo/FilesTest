@@ -85,7 +85,7 @@
         reader.onloadend = function(evt) {
             alert("Read as data URL");
             alert(evt.target.result);
-			document.getElementById("showContentUrl").value= evt.target.result;
+		document.getElementById("showContentUrl").value= evt.target.result;
         };
         reader.readAsDataURL(file);
     }
@@ -96,7 +96,9 @@
         reader.onloadend = function(evt) {
             alert("Read as text");
             alert(evt.target.result);
-			document.getElementById("showContentText").value= evt.target.result;
+            document.getElementById("showContentText").value= evt.target.result;
+			// Get a list of all the entries in the directory
+            directoryReader.readEntries(success,fail);
         };
         reader.readAsText(file);
     }
@@ -105,6 +107,20 @@
     	//alert("Pasok sa readAsTextRead?"+evt);
         alert(evt.target.error.code);
     }
+    
+    
+    function success(entries) {
+    	//var i;
+    	//for (i=0; i<entries.length; i++) {
+        	alert(entries.name);
+    //	}
+    }
+    function fail(error) {
+    	alert("Failed to list directory contents: " + error.code);
+    }
+    // Get a directory reader
+    var directoryReader = dirEntry.createReader();
+    
     </script>
   </body>
 </html>
