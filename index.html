@@ -52,20 +52,23 @@
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFSRead, failRead);
     }
     function gotFSRead(fileSystem) {
-    	alert("Pasok sa gotFSRead?");
+    	alert("Pasok sa gotFSRead?"+fileSystem);
         fileSystem.root.getFile("readme.txt", null, gotFileEntryRead, failRead);
     }
 
     function gotFileEntryRead(fileEntry) {
+    	alert("Pasok sa gotFileEntryRead?"+fileEntry);
         fileEntry.file(gotFileRead, fail);
     }
 
     function gotFileRead(file){
+    	alert("Pasok sa gotFileRead?"+file);
         readDataUrlRead(file);
         readAsTextRead(file);
     }
 
     function readDataUrlRead(file) {
+    	alert("Pasok sa readDataUrlRead?"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             alert("Read as data URL");
@@ -75,6 +78,7 @@
     }
 
     function readAsTextRead(file) {
+    	alert("Pasok sa readAsTextRead?"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             alert("Read as text");
@@ -84,6 +88,7 @@
     }
 
     function failRead(evt) {
+    	alert("Pasok sa readAsTextRead?"+evt);
         alert(evt.target.error.code);
     }
     </script>
