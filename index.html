@@ -19,7 +19,7 @@
     }
 
     function gotFS(fileSystem) {
-        fileSystem.root.getFile("xml.xml", {create: true, exclusive: false}, gotFileEntry, fail);
+        fileSystem.root.getFile("xml.txt", {create: true, exclusive: false}, gotFileEntry, fail);
     }
 
     function gotFileEntry(fileEntry) {
@@ -57,7 +57,7 @@
     }
     function gotFSRead(fileSystem) {
     	//alert("Pasok sa gotFSRead?"+fileSystem);
-        fileSystem.root.getFile("xml.xml", null, gotFileEntryRead, failRead);
+        fileSystem.root.getFile("xml.txt", null, gotFileEntryRead, failRead);
     }
 
     function gotFileEntryRead(fileEntry) {
