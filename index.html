@@ -4,11 +4,11 @@
     <title>FileWriter Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script src="http://debug.phonegap.com/target/target-script-min.js#anonymous"></script>
   </head>
   <body>
     <input type="button" value="Write" id="writeXML" />
-    <input type="button" value="Read" id="readXML" /><br/>
+    <input type="button" value="Read" id="readXML" />
+	<input type="button" value="Show Files" id="showDir" /><br/>
 	<textarea id="showContentText" style="border:1px solid black;height:200px;width:500px;"></textarea><br/>
 	<textarea id="showContentUrl" style="border:1px solid black;height:200px;width:500px;"></textarea>
 	
@@ -18,6 +18,7 @@
     // Wait for Cordova to load
     document.getElementById("writeXML").addEventListener("click", onDeviceReady);
     document.getElementById("readXML").addEventListener("click", onDeviceReadyRead);
+	document.getElementById("showDir").addEventListener("click", showDirectory);
     //document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
@@ -70,7 +71,7 @@
 
     function gotFileEntryRead(fileEntry) {
     	//alert("Pasok sa gotFileEntryRead?"+fileEntry);
-        fileEntry.file(gotFileRead, fail);
+        fileEntry.file(gotFileRead, failRead);
     }
 
     function gotFileRead(file){
@@ -97,8 +98,6 @@
             alert("Read as text");
             alert(evt.target.result);
             document.getElementById("showContentText").value= evt.target.result;
-			// Get a list of all the entries in the directory
-            directoryReader.readEntries(success,fail);
         };
         reader.readAsText(file);
     }
@@ -108,7 +107,12 @@
         alert(evt.target.error.code);
     }
     
-    
+    function showDirectory(){		
+		// Get a directory reader
+		var directoryReader = dirEntry.createReader();
+		// Get a list of all the entries in the directory
+		directoryReader.readEntries(success,fail);
+	}
     function success(entries) {
     	//var i;
     	//for (i=0; i<entries.length; i++) {
@@ -118,8 +122,6 @@
     function fail(error) {
     	alert("Failed to list directory contents: " + error.code);
     }
-    // Get a directory reader
-    var directoryReader = dirEntry.createReader();
     
     </script>
   </body>
